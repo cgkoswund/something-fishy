@@ -1,5 +1,6 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -9,5 +10,20 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <>
+      <div style={{ width: "100vw", height: "100vh" }}>
+        <Canvas>
+          <OrbitControls />
+          <directionalLight position={[1, 1, 1]} />
+          <directionalLight position={[-1, 1, 1]} />
+          <directionalLight position={[1, -1, 1]} />
+          <mesh>
+            <boxGeometry />
+            <meshStandardMaterial color="red" />
+          </mesh>
+        </Canvas>
+      </div>
+    </>
+  );
 }
