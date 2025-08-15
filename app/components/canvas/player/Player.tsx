@@ -1,17 +1,23 @@
-const Player = () => {
-    const playerHeight = 0.6;
-    const playerWidth = 0.3;
-    const playerDepth = 0.1;
-    return (
-        <>
-        <group position={[0, playerHeight / 2, 0]}>
-        <mesh position={[0, 0, 3]}>
-            <boxGeometry args={[playerWidth, playerHeight, playerDepth]} />
-            <meshStandardMaterial color="red" />
-        </mesh>
-        </group>
-        </>
-    )
-}
+import { useRef } from 'react';
+import type { Group } from 'three';
 
-export default Player
+import { PLAYER_HEIGHT, PLAYER_WIDTH, PLAYER_DEPTH } from '~/data/constants';
+import PlayerControls from './PlayerControls';
+
+const Player = () => {
+  const playerRef = useRef<Group | null>(null);
+  return (
+    <>
+      <PlayerControls controlsRef={playerRef}>
+        <group ref={playerRef}>
+          <mesh>
+            <boxGeometry args={[PLAYER_WIDTH, PLAYER_HEIGHT, PLAYER_DEPTH]} />
+            <meshStandardMaterial color="red" />
+          </mesh>
+        </group>
+      </PlayerControls>
+    </>
+  );
+};
+
+export default Player;
