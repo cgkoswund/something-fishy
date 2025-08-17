@@ -1,5 +1,6 @@
-import { MeshTransmissionMaterial } from "@react-three/drei";
-import * as THREE from "three";
+import { MeshTransmissionMaterial } from '@react-three/drei';
+import { RigidBody } from '@react-three/rapier';
+import * as THREE from 'three';
 
 const OuterRingTank = () => {
   const config = {
@@ -19,33 +20,31 @@ const OuterRingTank = () => {
     temporalDistortion: 0.5,
     clearcoat: 1,
     attenuationDistance: 0.5,
-    attenuationColor: "#ffffff",
-    color: "#c9ffa1",
-    bg: "#839681",
+    attenuationColor: '#ffffff',
+    color: '#c9ffa1',
+    // bg: '#839681',
   };
   return (
     <>
       <group scale={[1, 1, 0.85]}>
         <group position={[0, 1.4, 0]}>
+          <RigidBody type="fixed" colliders={'trimesh'} friction={3}>
+            <mesh>
+              <cylinderGeometry args={[10, 10, 2.8, 32, 1, true]} />
+              <MeshTransmissionMaterial
+                // background={new THREE.Color('rgb(0,128,255)')}
+                {...config}
+                side={THREE.DoubleSide}
+                // side={THREE.BackSide}
+              />
+            </mesh>
+          </RigidBody>
           <mesh>
-            <cylinderGeometry args={[10, 10, 2.8]} />
-            <MeshTransmissionMaterial
-              background={new THREE.Color("rgb(0,128,255)")}
-              {...config}
-              side={THREE.BackSide}
-            />
-          </mesh>
-          <mesh>
-            <cylinderGeometry args={[30, 30, 2.8]} />
+            <cylinderGeometry args={[30, 30, 2.8, 32, 1, true]} />
             <meshStandardMaterial
               color="rgb(0,128,255)"
               side={THREE.BackSide}
             />
-            {/* <MeshTransmissionMaterial
-            background={new THREE.Color("rgb(0,128,255)")}
-            {...config}
-            side={THREE.BackSide}
-          /> */}
           </mesh>
         </group>
         {/**Temp ceiling */}

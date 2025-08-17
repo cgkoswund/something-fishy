@@ -1,13 +1,11 @@
-import MainCamera from "./MainCamera";
-import { OrbitControls } from "@react-three/drei";
+import MainCamera from './MainCamera';
 
 const CameraStuff = () => {
-    return (
-        <>
-        <OrbitControls />
-        <MainCamera />
-        </>
-    )
-}
+  return (
+    <>
+      <MainCamera />
+    </>
+  );
+};
 
-export default CameraStuff
+export default CameraStuff;

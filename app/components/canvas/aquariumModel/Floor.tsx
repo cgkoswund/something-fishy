@@ -24,7 +24,7 @@ const Floor = () => {
         {...gridConfig}
       />
       <Grid position={[0, 0.07, 0]} scale={0.5} {...gridConfig} />
-      <RigidBody type="fixed">
+      <RigidBody type="fixed" colliders={false}>
         <CuboidCollider args={[100, 0.01, 100]} friction={0} />
         <mesh position={[0, 0.05, 0]} rotation={[-Math.PI / 2, 0, 0]}>
           <planeGeometry args={[100, 100]} />
