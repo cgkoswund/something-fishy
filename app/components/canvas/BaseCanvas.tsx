@@ -26,11 +26,14 @@ const BaseCanvas = () => {
           { name: 'run', keys: ['Shift'] },
         ]}
       >
-        <Canvas style={{ width: '100vw', height: '100vh' }}>
+        <Canvas
+          style={{ width: '100vw', height: '100vh' }}
+          camera={{ fov: 35 }}
+        >
           <Perf position={'top-left'} />
           <Lights />
           <CameraStuff />
-          <Physics debug>
+          <Physics>
             <Suspense fallback={null}>
               <Player />
               <Aquarium />
