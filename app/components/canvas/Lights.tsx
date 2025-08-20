@@ -1,4 +1,4 @@
-import { Environment } from "@react-three/drei";
+import { Environment } from '@react-three/drei';
 
 const Lights = () => {
   return (
@@ -6,7 +6,11 @@ const Lights = () => {
       <directionalLight position={[1, 1, 1]} />
       <directionalLight position={[-1, 1, 1]} />
       <directionalLight position={[1, -1, 1]} />
-      <Environment preset="apartment" />
+      <Environment
+        preset="apartment"
+        background={false}
+        environmentIntensity={0.25}
+      />
     </>
   );
 };
