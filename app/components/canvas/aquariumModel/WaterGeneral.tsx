@@ -7,7 +7,7 @@ import { useMemo } from 'react';
 
 const config = {
   meshPhysicalMaterial: false,
-  transmissionSampler: false,
+  transmissionSampler: true,
   backside: false,
   samples: 10,
   resolution: 1048,
@@ -19,20 +19,23 @@ const config = {
   anisotropy: 0.0,
   distortion: 0.1,
   distortionScale: 0.3,
-  temporalDistortion: 0.09,
-  clearcoat: 0.0,
+  temporalDistortion: 0.9,
+
   attenuationDistance: 15,
   attenuationColor: '#33bbdd',
+  // color: '#ffffff',
   color: '#39afd1',
-  bg: '#55ffff',
+  bg: '#ffffff',
+  // bg: '#55ffff',
   environmentMapIntensity: 0.03,
-  refractionRatio: 0.01,
-  reflectance: 0.01,
+
   transmissionBleeding: 0.01,
+  envMapIntensity: 0,
+  reflectivity: 0,
 };
 
 const WaterGeneral = () => {
-  const waterModel = useGLTF('/models/fish_environment_1_2_water_only.glb');
+  const waterModel = useGLTF('/models/fish_environment_1_4_water_only.glb');
   const { nodes } = useGraph(waterModel.scene);
 
   // Find all mesh nodes in the model
@@ -44,19 +47,19 @@ const WaterGeneral = () => {
 
   return (
     <group>
-      <RigidBody type="fixed" colliders={'trimesh'} friction={3}>
-        {waterMeshes.map((mesh, index) => (
-          <mesh
-            key={index}
-            geometry={mesh.geometry}
-            position={mesh.position}
-            rotation={mesh.rotation}
-            scale={mesh.scale}
-          >
-            <MeshTransmissionMaterial {...config} />
-          </mesh>
-        ))}
-      </RigidBody>
+      {/* <RigidBody type="fixed" colliders={'trimesh'} friction={3}> */}
+      {waterMeshes.map((mesh, index) => (
+        <mesh
+          key={index}
+          geometry={mesh.geometry}
+          position={mesh.position}
+          rotation={mesh.rotation}
+          scale={mesh.scale}
+        >
+          <MeshTransmissionMaterial {...config} />
+        </mesh>
+      ))}
+      {/* </RigidBody> */}
     </group>
   );
 };
