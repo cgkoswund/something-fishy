@@ -3,6 +3,7 @@ import Floor from './Floor';
 import OuterRingTank from './outerRingTank';
 import WallsGeneral from './WallsGeneral';
 import WaterGeneral from './WaterGeneral';
+import WaterSurface from './WaterSurface';
 
 const Aquarium = () => {
   return (
@@ -10,6 +11,7 @@ const Aquarium = () => {
       {/* <OuterRingTank /> */}
       {/* <CenterPillarTank /> */}
       <WallsGeneral />
+      <WaterSurface />
       <WaterGeneral />
       <Floor />
     </>

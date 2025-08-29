@@ -8,6 +8,7 @@ import Aquarium from './aquariumModel';
 import CameraStuff from './cameraStuff';
 import Lights from './Lights';
 import Player from './player/Player';
+import PostEffects from './PostEffects';
 
 const BaseCanvas = () => {
   return (
@@ -27,8 +28,9 @@ const BaseCanvas = () => {
         ]}
       >
         <Canvas
+          shadows
           style={{ width: '100vw', height: '100vh' }}
-          camera={{ fov: 35 }}
+          camera={{ fov: 30 }}
         >
           <Perf position={'top-left'} />
           <Lights />
@@ -39,6 +41,7 @@ const BaseCanvas = () => {
               <Aquarium />
             </Suspense>
           </Physics>
+          {/* <PostEffects /> */}
         </Canvas>
       </KeyboardControls>
     </>
