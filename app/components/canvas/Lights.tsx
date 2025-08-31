@@ -3,9 +3,10 @@ import { Environment } from '@react-three/drei';
 const Lights = () => {
   return (
     <>
-      <directionalLight castShadow position={[1, 1, 1]} />
-      <directionalLight position={[-1, 1, 1]} />
-      <directionalLight position={[1, -1, 1]} />
+      <directionalLight castShadow position={[1, 1, 1]} intensity={3} />
+      <directionalLight position={[-1, 1, 1]} intensity={1} />
+      <directionalLight position={[1, -1, 1]} intensity={1} />
+      <ambientLight intensity={0.5} />
 
       {/**center tank light */}
       {/* <spotLight position={[0.4, 2.3, 0.4]} intensity={2} />

@@ -9,7 +9,7 @@ import { useThree } from '@react-three/fiber';
 
 const configGeneral = {
   meshPhysicalMaterial: false,
-  transmissionSampler: true,
+  transmissionSampler: false,
   backside: false,
   samples: 7,
   resolution: 1048,
@@ -35,7 +35,8 @@ const configGeneral = {
 
 const centerTankConfig = {
   ...configGeneral,
-  ior: 1.7,
+  ior: 1.33333633,
+  transmission: 1,
   attenuationDistance: 5.5,
   thickness: 2,
   attenuationColor: '#eef8ff',
@@ -59,10 +60,12 @@ const crocTankConfig = {
   ...configGeneral,
   ior: 1.7,
   attenuationColor: '#d0d8df',
-  color: '#99afb1',
+  color: '#aabfc1',
   attenuationDistance: 3,
-  distortion: 0.2,
-  distortionScale: 3,
+  distortion: 0.1,
+  distortionScale: 3 * 2,
+  temporalDistortion: 0.5,
+  chromaticAberration: 0.001,
   thickness: 6,
 };
 

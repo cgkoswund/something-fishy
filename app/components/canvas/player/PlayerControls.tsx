@@ -37,8 +37,8 @@ const PlayerControls = () => {
     const cameraQuat = camera.quaternion;
     const { forward, backward, left, right, jump, run } = getKeys();
     const jumpStrength = 55.2 * delta * 60;
-    const walkSpeed = (5 / 100) * delta * 60 * 1.5;
-    const runSpeed = (25 / 100) * delta * 60 * 1.5;
+    const walkSpeed = ((5 / 100) * delta * 60 * 1.5) / 2;
+    const runSpeed = ((25 / 100) * delta * 60 * 1.5) / 4;
     const torqueStrength = 0.005;
     const impulse = { x: 0, y: 0, z: 0 };
     const torque = { x: 0, y: 0, z: 0 };
@@ -94,7 +94,7 @@ const PlayerControls = () => {
         angularDamping={50}
         canSleep={false}
         enabledRotations={[false, true, false]}
-        position={[0, PLAYER_HEIGHT + 2, 3]}
+        position={[0, PLAYER_HEIGHT * 0.7, 3]}
         rotation-y={0.05}
         colliders={false}
         gravityScale={1}
