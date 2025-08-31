@@ -33,10 +33,10 @@ const PlayerRemake = () => {
         /> */}
         <CylinderCollider args={[PLAYER_WIDTH / 2, PLAYER_HEIGHT / 2]} />
         {/* <CuboidCollider args={[PLAYER_WIDTH, PLAYER_HEIGHT, PLAYER_DEPTH]} /> */}
-        <mesh position={[0, 0, 0]}>
+        {/* <mesh position={[0, 0, 0]}>
           <boxGeometry args={[PLAYER_WIDTH, PLAYER_HEIGHT, PLAYER_DEPTH]} />
           <meshStandardMaterial color="yellow" />
-        </mesh>
+        </mesh> */}
       </RigidBody>
     </>
   );

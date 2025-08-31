@@ -1,5 +1,6 @@
 import type { Route } from './+types/home';
 import BaseCanvas from '../components/canvas/BaseCanvas';
+import LoadingPage from '../components/dom/LoadingPage';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -13,6 +14,7 @@ export default function Home() {
     <>
       <div style={{ width: '100vw', height: '100vh' }}>
         <BaseCanvas />
+        <LoadingPage />
       </div>
     </>
   );

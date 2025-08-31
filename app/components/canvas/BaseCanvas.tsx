@@ -13,7 +13,6 @@ import CameraStuff from './cameraStuff';
 import Lights from './Lights';
 import WaterGeneral from './aquariumModel/WaterGeneral';
 import PlayerControls from './player/PlayerControls';
-import PlayerRemake from './player/PlayerRemake';
 import LoadingPage from '../dom/LoadingPage';
 
 const BaseCanvas = () => {
@@ -33,12 +32,12 @@ const BaseCanvas = () => {
           { name: 'run', keys: ['Shift'] },
         ]}
       >
-        <Suspense fallback={<LoadingPage />}>
-          <Canvas
-            shadows
-            style={{ width: '100vw', height: '100vh' }}
-            camera={{ fov: 30, position: [3, 0.8, 7] }}
-          >
+        <Canvas
+          shadows
+          style={{ width: '100vw', height: '100vh' }}
+          camera={{ fov: 30, position: [3, 0.8, 7] }}
+        >
+          <Suspense fallback={null}>
             {/* <Perf position={'top-left'} /> */}
             <Lights />
             <CameraStuff />
@@ -48,9 +47,9 @@ const BaseCanvas = () => {
             </Physics>
             <WaterGeneral />
             {/* <PostEffects /> */}
-            <PointerLockControls />
-          </Canvas>
-        </Suspense>
+          </Suspense>
+          <PointerLockControls />
+        </Canvas>
       </KeyboardControls>
     </>
   );
