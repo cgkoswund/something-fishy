@@ -43,6 +43,7 @@ const centerTankConfig = {
   color: '#99afb1',
   distortion: 0.2,
   distortionScale: 3,
+  resolution: 1024,
 };
 
 const jellyTankConfig = {

@@ -14,6 +14,7 @@ import Lights from './Lights';
 import WaterGeneral from './aquariumModel/WaterGeneral';
 import PlayerControls from './player/PlayerControls';
 import PlayerRemake from './player/PlayerRemake';
+import LoadingPage from '../dom/LoadingPage';
 
 const BaseCanvas = () => {
   return (
@@ -32,22 +33,24 @@ const BaseCanvas = () => {
           { name: 'run', keys: ['Shift'] },
         ]}
       >
-        <Canvas
-          shadows
-          style={{ width: '100vw', height: '100vh' }}
-          camera={{ fov: 30, position: [3, 0.8, 7] }}
-        >
-          <Perf position={'top-left'} />
-          <Lights />
-          <CameraStuff />
-          <Physics>
-            <PlayerControls />
-            <Aquarium />
-          </Physics>
-          <WaterGeneral />
-          {/* <PostEffects /> */}
-          <PointerLockControls />
-        </Canvas>
+        <Suspense fallback={<LoadingPage />}>
+          <Canvas
+            shadows
+            style={{ width: '100vw', height: '100vh' }}
+            camera={{ fov: 30, position: [3, 0.8, 7] }}
+          >
+            {/* <Perf position={'top-left'} /> */}
+            <Lights />
+            <CameraStuff />
+            <Physics>
+              <PlayerControls />
+              <Aquarium />
+            </Physics>
+            <WaterGeneral />
+            {/* <PostEffects /> */}
+            <PointerLockControls />
+          </Canvas>
+        </Suspense>
       </KeyboardControls>
     </>
   );
