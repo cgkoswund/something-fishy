@@ -7,6 +7,8 @@ import WaterSurface from './WaterSurface';
 import { Suspense } from 'react';
 import CenterTankFishes from '../Fishes/CenterTankFishes';
 import CrocTankFishes from '../Fishes/CrocTankFishes';
+import BiggestTank from '../Fishes/BiggestTank/BiggestTank';
+import JellyTankFishes from '../Fishes/JellyTank/';
 
 const Aquarium = () => {
   return (
@@ -15,6 +17,8 @@ const Aquarium = () => {
       {/* <CenterPillarTank /> */}
       <CenterTankFishes />
       <CrocTankFishes />
+      <BiggestTank />
+      <JellyTankFishes />
       <WallsGeneral />
       <WaterSurface />
       <Floor />

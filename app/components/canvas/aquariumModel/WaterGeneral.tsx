@@ -71,13 +71,19 @@ const crocTankConfig = {
 
 const sharkTankConfig = {
   ...configGeneral,
-  ior: 1.7,
-  attenuationColor: '#336688',
-  color: '#99afb1',
-  // attenuationDistance: 2.5,
-  distortion: 0.2,
-  distortionScale: 3,
-  thickness: 30,
+  ior: 1.33333,
+  attenuationColor: '#66aacc',
+  // color: '#99afb1',
+  color: '#fdfdfd',
+  attenuationDistance: 20.5,
+  transmissionSampler: true,
+  resolution: 128,
+
+  distortion: 0.00000000000000000001,
+  distortionScale: 10000000000000,
+  temporalDistortion: 0.0,
+  thickness: 20,
+  transmissionBleeding: 0.01,
   //fade color to black
 };
 
