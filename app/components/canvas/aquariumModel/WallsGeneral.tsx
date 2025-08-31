@@ -23,6 +23,10 @@ const WallsGeneral = () => {
 
   //traverse model and cast shadows
   wallMeshes.forEach((mesh) => {
+    if (mesh.name.includes('boundary')) {
+      const meshMaterial = mesh.material as THREE.MeshStandardMaterial;
+      meshMaterial.color.set('#000000');
+    }
     mesh.castShadow = true;
     mesh.receiveShadow = true;
   });
@@ -216,7 +220,5 @@ const WallsGeneral = () => {
     </group>
   );
 };
-
-useGLTF.preload('/fish_environment_1_5_3.glb');
 
 export default WallsGeneral;

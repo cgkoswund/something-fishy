@@ -9,12 +9,14 @@ const Player = () => {
   return (
     <>
       <PlayerControls controlsRef={playerRef}>
-        <group ref={playerRef}>
-          <mesh>
-            <boxGeometry args={[PLAYER_WIDTH, PLAYER_HEIGHT, PLAYER_DEPTH]} />
-            <meshStandardMaterial color="red" />
+        {/* <group ref={playerRef}>
+  
+          <mesh position={[0, PLAYER_HEIGHT / 2, 0]}>
+            <boxGeometry args={[0.03, 0.03, 0.03]} />
+            <meshStandardMaterial color="yellow" opacity={1} />
           </mesh>
-        </group>
+         
+        </group> */}
       </PlayerControls>
     </>
   );

@@ -4,6 +4,7 @@ import OuterRingTank from './outerRingTank';
 import WallsGeneral from './WallsGeneral';
 import WaterGeneral from './WaterGeneral';
 import WaterSurface from './WaterSurface';
+import { Suspense } from 'react';
 
 const Aquarium = () => {
   return (
@@ -12,8 +13,8 @@ const Aquarium = () => {
       {/* <CenterPillarTank /> */}
       <WallsGeneral />
       <WaterSurface />
-      <WaterGeneral />
       <Floor />
+      {/* <WaterGeneral /> */}
     </>
   );
 };
