@@ -66,6 +66,7 @@ const Betta = ({
         swimDirection = Math.random() > 0.5 ? 1 : -1;
         model.rotation.y = (swimDirection * Math.PI) / 2;
       }
+
       bettaRef.current.rotation.y += delta * swimSpeed * 0.01 * swimDirection;
     }
   });

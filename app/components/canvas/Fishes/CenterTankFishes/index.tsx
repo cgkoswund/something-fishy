@@ -3,7 +3,6 @@ import Betta from './Betta';
 
 const CenterTankFishes = () => {
   //log file loaded
-  console.log('CenterTankFishes loaded');
   return (
     <group>
       <Betta

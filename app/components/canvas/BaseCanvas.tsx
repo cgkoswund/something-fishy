@@ -28,7 +28,7 @@ const BaseCanvas = () => {
           { name: 'lookRight', keys: ['KeyE'] },
           { name: 'noseDown', keys: ['KeyF'] },
           { name: 'noseUp', keys: ['KeyR'] },
-          { name: 'jump', keys: ['Space'] },
+          // { name: 'jump', keys: ['Space'] },
           { name: 'run', keys: ['Shift'] },
         ]}
       >

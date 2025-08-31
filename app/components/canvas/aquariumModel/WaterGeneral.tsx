@@ -11,8 +11,8 @@ const configGeneral = {
   meshPhysicalMaterial: false,
   transmissionSampler: false,
   backside: false,
-  samples: 7,
-  resolution: 1048,
+  samples: 4,
+  resolution: 512,
   transmission: 1,
   roughness: 0.01,
   thickness: 3.5,
@@ -146,6 +146,16 @@ const WaterGeneral = () => {
     }
   });
 
+  const CenterWaterMaterial = (
+    <MeshTransmissionMaterial {...centerTankConfig} />
+  );
+
+  const JellyWaterMaterial = <MeshTransmissionMaterial {...jellyTankConfig} />;
+
+  const CrocWaterMaterial = <MeshTransmissionMaterial {...crocTankConfig} />;
+
+  const OuterWaterMaterial = <MeshTransmissionMaterial {...sharkTankConfig} />;
+
   return (
     <group>
       {centerTankMeshes.map((mesh, index) => (
@@ -154,7 +164,7 @@ const WaterGeneral = () => {
           position={mesh.position.toArray()}
           geometry={mesh.geometry}
         >
-          <MeshTransmissionMaterial {...centerTankConfig} />
+          {CenterWaterMaterial}
         </mesh>
       ))}
 
@@ -164,7 +174,7 @@ const WaterGeneral = () => {
           position={mesh.position.toArray()}
           geometry={mesh.geometry}
         >
-          <MeshTransmissionMaterial {...jellyTankConfig} />
+          {JellyWaterMaterial}
         </mesh>
       ))}
 
@@ -174,7 +184,7 @@ const WaterGeneral = () => {
           position={mesh.position.toArray()}
           geometry={mesh.geometry}
         >
-          <MeshTransmissionMaterial {...crocTankConfig} />
+          {CrocWaterMaterial}
         </mesh>
       ))}
 
@@ -184,7 +194,7 @@ const WaterGeneral = () => {
           position={mesh.position.toArray()}
           geometry={mesh.geometry}
         >
-          <MeshTransmissionMaterial {...sharkTankConfig} />
+          {OuterWaterMaterial}
         </mesh>
       ))}
     </group>

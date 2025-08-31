@@ -35,8 +35,8 @@ const PlayerControls = () => {
     const t = clock.getElapsedTime();
 
     const cameraQuat = camera.quaternion;
-    const { forward, backward, left, right, jump, run } = getKeys();
-    const jumpStrength = 55.2 * delta * 60;
+    const { forward, backward, left, right, run } = getKeys();
+    // const jumpStrength = 55.2 * delta * 60;
     const walkSpeed = ((5 / 100) * delta * 60 * 1.5) / 2;
     const runSpeed = ((25 / 100) * delta * 60 * 1.5) / 4;
     const torqueStrength = 0.005;
@@ -57,9 +57,9 @@ const PlayerControls = () => {
     if (right) {
       dirVec.x = 1;
     }
-    if (jump) {
-      impulse.y = jumpStrength;
-    }
+    // if (jump) {
+    //   impulse.y = jumpStrength;
+    // }
     if (dirVec.x !== 0) {
     }
 

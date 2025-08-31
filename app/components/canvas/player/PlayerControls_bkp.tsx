@@ -144,8 +144,8 @@ const PlayerControls = ({
           rapierQuaternion.w
         )
       : new THREE.Quaternion();
-    const { forward, backward, left, right, jump, run } = getKeys();
-    const jumpStrength = 55.2 * delta * 60;
+    const { forward, backward, left, right, run } = getKeys();
+    // const jumpStrength = 55.2 * delta * 60;
     const walkSpeed = (5 / 100) * delta * 60 * 1.5;
     const runSpeed = (25 / 100) * delta * 60 * 1.5;
     const torqueStrength = 0.005;
@@ -166,9 +166,9 @@ const PlayerControls = ({
     if (right) {
       dirVec.x = 1;
     }
-    if (jump) {
-      impulse.y = jumpStrength;
-    }
+    // if (jump) {
+    //   impulse.y = jumpStrength;
+    // }
     if (dirVec.x !== 0) {
     }
 

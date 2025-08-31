@@ -5,7 +5,7 @@ import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import * as SkeletonUtils from 'three/addons/utils/SkeletonUtils.js';
 
-const SeaTurtle = ({
+const Whale = ({
   height = 1.2,
   rotationY = 0,
   swimSpeed = 1.0,
@@ -18,14 +18,14 @@ const SeaTurtle = ({
 }) => {
   // Load the model once
   const { scene, animations } = useGLTF(
-    '/models/fishModels/model_72b_-_juvenile_green_sea_turtle.glb'
+    '/models/fishModels/blue_whale_-_textured.glb'
   );
 
   // Create a unique instance of the model for this component using SkeletonUtils.clone()
   const model = useMemo(() => SkeletonUtils.clone(scene), [scene]);
 
   // Create a ref for the group
-  const seaTurtleRef = useRef<Group>(null);
+  const bettaRef = useRef<Group>(null);
 
   // Create a mixer for this specific instance
   const mixer = useMemo(() => new THREE.AnimationMixer(model), [model]);
@@ -60,25 +60,30 @@ const SeaTurtle = ({
   let swimDirection = 1;
   useFrame((state, delta) => {
     mixer.update(delta);
-    if (seaTurtleRef.current) {
+    if (bettaRef.current) {
       count++;
       if (count % 1000 === 0) {
         swimDirection = Math.random() > 0.5 ? 1 : -1;
         model.rotation.y = (swimDirection * Math.PI) / 2;
       }
-
-      seaTurtleRef.current.rotation.y +=
-        delta * swimSpeed * 0.01 * swimDirection * 3;
+      bettaRef.current.rotation.y += delta * swimSpeed * 0.01 * swimDirection;
     }
   });
 
   return (
-    <group ref={seaTurtleRef} rotation={[0, (rotationY * Math.PI) / 180, 0]}>
-      <group position={[0, height, 35]}>
-        <primitive object={model} scale={0.5} rotation={[0, Math.PI / 2, 0]} />
+    <group
+      ref={bettaRef}
+      rotation={[0, (rotationY * Math.PI) / 180 + Math.PI / 4, 0]}
+    >
+      <group position={[0, 2.8, 40]}>
+        <primitive
+          object={model}
+          scale={0.007}
+          rotation={[0, Math.PI / 3, 0]}
+        />
       </group>
     </group>
   );
 };
 
-export default SeaTurtle;
+export default Whale;

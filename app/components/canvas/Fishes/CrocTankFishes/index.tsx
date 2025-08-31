@@ -21,12 +21,12 @@ const CrocTankFishes = () => {
         swimSpeed={1.0}
         wiggleAmount={0.1 * 20}
       />
-      <NileCroc
+      {/* <NileCroc
         height={0.7 * 1.0}
         xOffset={-2.5}
         swimSpeed={1.0 * 1.3}
         wiggleAmount={0.1 * 20}
-      />
+      /> */}
 
       {/*<Tank 2*/}
       <group position={[0, 0, -40]}>
@@ -48,12 +48,12 @@ const CrocTankFishes = () => {
           swimSpeed={1.0}
           wiggleAmount={0.1 * 20}
         />
-        <NileCroc
+        {/* <NileCroc
           height={0.7 * 1.0}
           xOffset={-2.5}
           swimSpeed={1.0 * 1.3}
           wiggleAmount={0.1 * 20}
-        />
+        /> */}
       </group>
     </group>
   );
