@@ -38,7 +38,7 @@ const BaseCanvas = () => {
           camera={{ fov: 30, position: [3, 0.8, 7] }}
         >
           <Suspense fallback={null}>
-            {/* <Perf position={'top-left'} /> */}
+            <Perf position={'top-left'} />
             <Lights />
             <CameraStuff />
             <Physics>

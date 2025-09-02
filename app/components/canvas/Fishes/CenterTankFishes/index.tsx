@@ -1,5 +1,5 @@
 import Betta from './Betta';
-// import SelFish from "./SelFish";
+import PlaneFishGroup from './PlaneFishGroup';
 
 const CenterTankFishes = () => {
   //log file loaded
@@ -29,6 +29,7 @@ const CenterTankFishes = () => {
         swimSpeed={1.5 * 20}
         wiggleAmount={0.12 * 20}
       />
+      <PlaneFishGroup />
     </group>
   );
 };

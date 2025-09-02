@@ -7,7 +7,9 @@ const WaterSurface = () => {
   const waterSurface = useGLTF(
     '/models/fish_environment_1_5_water_surface_only3.glb'
   );
-  const waterSurfaceTex = useTexture('/tex/water_surface_smlss_txtr.png');
+  const waterSurfaceTex = useTexture(
+    '/tex/water_surface_smlss_txtr128_dark.png'
+  );
   waterSurfaceTex.wrapS = THREE.RepeatWrapping;
   waterSurfaceTex.wrapT = THREE.RepeatWrapping;
   waterSurfaceTexture = waterSurfaceTex;
