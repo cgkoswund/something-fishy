@@ -84,7 +84,7 @@ const WaterGeneral = () => {
 
   return (
     <group>
-      {centerTankMeshes.map((mesh, index) => (
+      {/* {centerTankMeshes.map((mesh, index) => (
         <mesh
           key={index}
           position={mesh.position.toArray()}
@@ -92,7 +92,7 @@ const WaterGeneral = () => {
         >
           {CenterWaterMaterial}
         </mesh>
-      ))}
+      ))} */}
 
       {/* {jellyTankMeshes.map((mesh, index) => (
         <mesh

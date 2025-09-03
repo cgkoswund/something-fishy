@@ -69,12 +69,12 @@ const WallsGeneral = () => {
           material={nodes.boundary003.material}
           position={[0, 0.995, 0]}
         />
-        <mesh
+        {/* <mesh
           castShadow
           receiveShadow
           geometry={nodes.mesh1005.geometry}
           material={nodes.mesh1005.material}
-        />
+        /> */}
         {/* <mesh
           castShadow
           receiveShadow
@@ -176,12 +176,12 @@ const WallsGeneral = () => {
           geometry={nodes.tunnel_wall005.geometry}
           material={nodes.tunnel_wall005.material}
         />
-        <mesh
+        {/* <mesh
           castShadow
           receiveShadow
           geometry={nodes.walking_floor001.geometry}
           material={nodes.walking_floor001.material}
-        />
+        /> */}
         <mesh
           castShadow
           receiveShadow
@@ -205,7 +205,7 @@ const WallsGeneral = () => {
           rotation={[-Math.PI, 0, -Math.PI]}
           scale={-1}
         />
-        <mesh
+        {/* <mesh
           castShadow
           receiveShadow
           geometry={nodes.tilapia_tank_floor003.geometry}
@@ -213,7 +213,7 @@ const WallsGeneral = () => {
           position={[0, 2.305, 0]}
           rotation={[-Math.PI, 0, -Math.PI]}
           scale={-1}
-        />
+        /> */}
       </group>
       /************************************ */
     </group>

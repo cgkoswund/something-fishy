@@ -1,41 +1,49 @@
-import { Grid } from '@react-three/drei';
 import { RigidBody, CuboidCollider } from '@react-three/rapier';
+import { useGLTF } from '@react-three/drei';
+import * as THREE from 'three';
 
-const Floor = () => {
-  const gridConfig = {
-    gridSize: [10.5, 10.5],
-    cellSize: 0.5,
-    cellThickness: 1,
-    cellColor: '#6f6f6f',
-    sectionSize: 2,
-    sectionThickness: 1.5,
-    sectionColor: '#9d4b4b',
-    fadeDistance: 100,
-    fadeStrength: 1,
-    followCamera: false,
-    infiniteGrid: true,
-  };
+const Floor = ({ materialsMap }: { materialsMap: any }) => {
+  const { nodes: floorNodes } = useGLTF(
+    '/models/templates/fish_env_1_6_main_floor.glb'
+  );
+  const { nodes: roofNodes } = useGLTF(
+    '/models/templates/fish_env_1_6_main_roof.glb'
+  );
+
+  floorNodes.main_floor.traverse((child: THREE.Object3D) => {
+    if (child instanceof THREE.Mesh) {
+      child.castShadow = true;
+      child.receiveShadow = true;
+      child.material = materialsMap.floor;
+    }
+  });
+
+  roofNodes.main_roof.traverse((child: THREE.Object3D) => {
+    if (child instanceof THREE.Mesh) {
+      child.castShadow = true;
+      child.receiveShadow = true;
+      child.material = materialsMap.roof;
+    }
+  });
+
+  const floorMaterial = materialsMap.floor;
+  const roofMaterial = materialsMap.roof;
+
   return (
     <>
-      {/* <Grid
-        position={[0, 2.4 - 0.01, 0]}
-        rotation={[Math.PI, 0, 0]}
-        scale={0.5}
-        {...gridConfig}
-      /> */}
-      {/* <Grid position={[0, 0.07, 0]} scale={0.5} {...gridConfig} /> */}
+      <primitive
+        object={floorNodes.main_floor}
+        position={floorNodes.main_floor.position.toArray()}
+        material={floorMaterial}
+      />
+      <primitive
+        object={roofNodes.main_roof}
+        position={roofNodes.main_roof.position.toArray()}
+        material={roofMaterial}
+      />
       <RigidBody type="fixed" colliders={false}>
         <CuboidCollider args={[100, 0.01, 100]} friction={0} />
-        {/* <mesh position={[0, 0.05, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-          <planeGeometry args={[100, 100]} />
-          <meshStandardMaterial color="black" />
-        </mesh> */}
       </RigidBody>
-      {/**Temp ceiling */}
-      {/* <mesh position={[0, 2.4, 0]} rotation={[Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[100, 100]} />
-        <meshStandardMaterial color="black" />
-      </mesh> */}
     </>
   );
 };

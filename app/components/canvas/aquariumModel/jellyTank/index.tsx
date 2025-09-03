@@ -10,9 +10,8 @@ import * as THREE from 'three';
 import { useMemo } from 'react';
 import { jellyTankConfig } from '~/data/constants';
 
-const JellyTank = () => {
-  const { ...nodes } = JellyTankTemplate();
-  //   console.log('nodes', nodes);
+const JellyTank = ({ materialsMap }: { materialsMap: any }) => {
+  const { ...nodes } = JellyTankTemplate({ materialsMap });
 
   const customBoundingSphere = useMemo(() => {
     // Calculate center and radius that encompasses all your tank positions
@@ -22,11 +21,16 @@ const JellyTank = () => {
   }, []);
 
   nodes.JellyTankGlass.geometry.boundingSphere = customBoundingSphere;
+  nodes.JellyTankLip.geometry.boundingSphere = customBoundingSphere;
 
   return (
     <>
-      <Merged meshes={nodes} scale={[1, 1, 1]}>
-        {({ JellyTankLip, JellyTankGlass }) => (
+      <Merged
+        meshes={nodes}
+        scale={[1, 1, 1]}
+        boundingSphere={customBoundingSphere}
+      >
+        {({ JellyTankLip }) => (
           <>
             <group position={nodes.JellyTankLip.position.toArray()}>
               <JellyTankLip scale={[1, 1, 1]} position={[0, 0, 0]} />
@@ -54,7 +58,7 @@ const JellyTank = () => {
           scale={[1, -1, -1]} //y flip to show back side
           position={[0, 2 * nodes.JellyTankLip.position.y, 0]}
         />
-        <Instance scale={[-1, 1, -1]} position={[0, 0, 0]} /> {/* */}
+        <Instance scale={[-1, 1, -1]} position={[0, 0, 0]} />
       </Instances>
     </>
   );

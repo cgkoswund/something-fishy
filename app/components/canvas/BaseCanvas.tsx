@@ -2,18 +2,13 @@ import { Canvas } from '@react-three/fiber';
 import { Physics } from '@react-three/rapier';
 import { Perf } from 'r3f-perf';
 import { Suspense } from 'react';
-import {
-  KeyboardControls,
-  OrbitControls,
-  PointerLockControls,
-} from '@react-three/drei';
+import { KeyboardControls, PointerLockControls } from '@react-three/drei';
 
 import Aquarium from './aquariumModel';
 import CameraStuff from './cameraStuff';
 import Lights from './Lights';
 import WaterGeneral from './aquariumModel/WaterGeneral';
 import PlayerControls from './player/PlayerControls';
-import LoadingPage from '../dom/LoadingPage';
 
 const BaseCanvas = () => {
   return (
@@ -28,7 +23,6 @@ const BaseCanvas = () => {
           { name: 'lookRight', keys: ['KeyE'] },
           { name: 'noseDown', keys: ['KeyF'] },
           { name: 'noseUp', keys: ['KeyR'] },
-          // { name: 'jump', keys: ['Space'] },
           { name: 'run', keys: ['Shift'] },
         ]}
       >
@@ -46,7 +40,6 @@ const BaseCanvas = () => {
               <Aquarium />
             </Physics>
             <WaterGeneral />
-            {/* <PostEffects /> */}
           </Suspense>
           <PointerLockControls />
         </Canvas>
