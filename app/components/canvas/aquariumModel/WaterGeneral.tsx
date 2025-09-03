@@ -6,87 +6,12 @@ import { useGraph } from '@react-three/fiber';
 import { useMemo, useEffect, useRef, useLayoutEffect, useState } from 'react';
 import { useProgress } from '@react-three/drei';
 import { useThree } from '@react-three/fiber';
-
-const configGeneral = {
-  meshPhysicalMaterial: false,
-  transmissionSampler: false,
-  backside: false,
-  samples: 4,
-  resolution: 512,
-  transmission: 1,
-  roughness: 0.01,
-  thickness: 3.5,
-  ior: 3 + 0.000001,
-  chromaticAberration: 0.01,
-  anisotropy: 0.0,
-  distortion: 0.1,
-  distortionScale: 0.3,
-  temporalDistortion: 0.9,
-
-  attenuationDistance: 50,
-  attenuationColor: '#ddffff',
-  color: '#b9bfd1',
-  environmentMapIntensity: 0.03,
-
-  transmissionBleeding: 0.01,
-  envMapIntensity: 0,
-  reflectivity: 0.05,
-};
-
-const centerTankConfig = {
-  ...configGeneral,
-  ior: 1.33333633,
-  transmission: 1,
-  attenuationDistance: 5.5,
-  thickness: 2,
-  attenuationColor: '#eef8ff',
-  color: '#99afb1',
-  distortion: 0.2,
-  distortionScale: 3,
-  resolution: 1024,
-};
-
-const jellyTankConfig = {
-  ...configGeneral,
-  ior: 1.75,
-  attenuationColor: '#eef8ff',
-  color: '#99afb1',
-  attenuationDistance: 1.5,
-  distortion: 0.2,
-  distortionScale: 3,
-  thickness: 6,
-};
-
-const crocTankConfig = {
-  ...configGeneral,
-  ior: 1.7,
-  attenuationColor: '#d0d8df',
-  color: '#aabfc1',
-  attenuationDistance: 3,
-  distortion: 0.1,
-  distortionScale: 3 * 2,
-  temporalDistortion: 0.5,
-  chromaticAberration: 0.001,
-  thickness: 6,
-};
-
-const sharkTankConfig = {
-  ...configGeneral,
-  ior: 1.33333,
-  attenuationColor: '#66aacc',
-  // color: '#99afb1',
-  color: '#fdfdfd',
-  attenuationDistance: 20.5,
-  transmissionSampler: true,
-  resolution: 128,
-
-  distortion: 0.00000000000000000001,
-  distortionScale: 10000000000000,
-  temporalDistortion: 0.0,
-  thickness: 20,
-  transmissionBleeding: 0.01,
-  //fade color to black
-};
+import {
+  centerTankConfig,
+  jellyTankConfig,
+  crocTankConfig,
+  sharkTankConfig,
+} from '~/data/constants';
 
 const WaterGeneral = () => {
   const centerTankModel = useGLTF(
@@ -169,7 +94,7 @@ const WaterGeneral = () => {
         </mesh>
       ))}
 
-      {jellyTankMeshes.map((mesh, index) => (
+      {/* {jellyTankMeshes.map((mesh, index) => (
         <mesh
           key={index}
           position={mesh.position.toArray()}
@@ -177,7 +102,7 @@ const WaterGeneral = () => {
         >
           {JellyWaterMaterial}
         </mesh>
-      ))}
+      ))} */}
 
       {crocTankMeshes.map((mesh, index) => (
         <mesh

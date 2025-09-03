@@ -4,7 +4,6 @@ import { RigidBody } from '@react-three/rapier';
 import { useGraph } from '@react-three/fiber';
 import { useMemo } from 'react';
 import { CylinderCollider } from '@react-three/rapier';
-import React, { useRef } from 'react';
 
 const WallsGeneral = () => {
   const wallsModel = useGLTF('/models/fish_environment_1_5_2.glb');
@@ -46,9 +45,9 @@ const WallsGeneral = () => {
         <CylinderCollider args={[2.5 / 2, 0.75]} friction={3} />
         <primitive object={wallColliders.scene} visible={false} />
       </RigidBody>
-      <group>
+      {/* <group>
         <primitive object={wallsModel.scene} />
-      </group>
+      </group> */}
       {/* {wallMeshes.map((mesh, index) => (
         <mesh
           key={index}
@@ -76,33 +75,33 @@ const WallsGeneral = () => {
           geometry={nodes.mesh1005.geometry}
           material={nodes.mesh1005.material}
         />
-        <mesh
+        {/* <mesh
           castShadow
           receiveShadow
           geometry={nodes.tilapia_tank_wall009.geometry}
           material={nodes.tilapia_tank_wall009.material}
-        />
-        <mesh
+        /> */}
+        {/* <mesh
           castShadow
           receiveShadow
           geometry={nodes.short_lip001.geometry}
           material={nodes.short_lip001.material}
-        />
-        <mesh
+        /> */}
+        {/* <mesh
           castShadow
           receiveShadow
           geometry={nodes.short_lip_outer001.geometry}
           material={nodes.short_lip_outer001.material}
           rotation={[Math.PI / 2, 0, 0]}
           scale={-1}
-        />
-        <mesh
+        /> */}
+        {/* <mesh
           castShadow
           receiveShadow
           geometry={nodes.short_lip_tube001.geometry}
           material={nodes.short_lip_tube001.material}
           position={[0, 0, 0.029]}
-        />
+        /> */}
         <mesh
           castShadow
           receiveShadow

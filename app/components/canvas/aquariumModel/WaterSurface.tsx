@@ -27,10 +27,10 @@ const WaterSurface = () => {
   useFrame(() => {
     if (waterSurfaceTexture) {
       count++;
-      if (count % 5 === 0) {
+      if (count % 1 === 0) {
         waterSurfaceTexture.offset.set(
-          waterSurfaceTexture.offset.x + scrollSpeed * 3,
-          waterSurfaceTexture.offset.y + scrollSpeed * 3
+          waterSurfaceTexture.offset.x + (scrollSpeed * 3) / 15,
+          waterSurfaceTexture.offset.y + (scrollSpeed * 3) / 5
         );
         waterSurfaceTexture.needsUpdate = true;
       }

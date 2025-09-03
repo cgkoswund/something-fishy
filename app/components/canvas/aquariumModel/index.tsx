@@ -9,6 +9,7 @@ import CenterTankFishes from '../Fishes/CenterTankFishes';
 import CrocTankFishes from '../Fishes/CrocTankFishes';
 import BiggestTank from '../Fishes/BiggestTank/BiggestTank';
 import JellyTankFishes from '../Fishes/JellyTank/';
+import JellyTank from './jellyTank';
 
 const Aquarium = () => {
   return (
@@ -18,6 +19,7 @@ const Aquarium = () => {
       <CenterTankFishes />
       <CrocTankFishes />
       <BiggestTank />
+      <JellyTank />
       <JellyTankFishes />
       <WallsGeneral />
       <WaterSurface />

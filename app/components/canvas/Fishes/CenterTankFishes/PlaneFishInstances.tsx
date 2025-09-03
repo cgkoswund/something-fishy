@@ -55,7 +55,7 @@ const PlaneFishInstances = () => {
   return (
     <>
       {fishes.map((fish, index) => {
-        const fishCount = Math.random() * 20 + 1;
+        const fishCount = Math.random() * 12 + 1;
         return (
           <Instances key={index}>
             <PlaneFishGeometryForInstance
