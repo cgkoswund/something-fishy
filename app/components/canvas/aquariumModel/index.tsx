@@ -10,6 +10,7 @@ import BiggestTank from '../Fishes/BiggestTank/BiggestTank';
 import JellyTankFishes from '../Fishes/JellyTank/';
 import JellyTank from './jellyTank';
 import Materials from '../Materials';
+import CrocTank from './crocTank';
 
 const Aquarium = () => {
   const materialsMap = Materials();
@@ -21,6 +22,8 @@ const Aquarium = () => {
       <CrocTankFishes />
       <BiggestTank />
       <JellyTank materialsMap={materialsMap} />
+      <CrocTank materialsMap={materialsMap} />
+      {/**space */}
       <JellyTankFishes />
       <WallsGeneral />
       <WaterSurface />

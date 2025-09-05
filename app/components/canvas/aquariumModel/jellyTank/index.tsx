@@ -34,13 +34,9 @@ const JellyTank = ({ materialsMap }: { materialsMap: any }) => {
           <>
             <group position={nodes.JellyTankLip.position.toArray()}>
               <JellyTankLip scale={[1, 1, 1]} position={[0, 0, 0]} />
-              <JellyTankLip scale={[-1, 1, 1]} position={[0, 0, 0]} />
-              <JellyTankLip scale={[1, -1, 1]} position={[0, 0, 0]} />
               <JellyTankLip scale={[-1, -1, 1]} position={[0, 0, 0]} />
-              <JellyTankLip scale={[1, 1, -1]} position={[0, 0, 0]} />
-              <JellyTankLip scale={[-1, 1, -1]} position={[0, 0, 0]} />
               <JellyTankLip scale={[1, -1, -1]} position={[0, 0, 0]} />
-              <JellyTankLip scale={[-1, -1, -1]} position={[0, 0, 0]} />
+              <JellyTankLip scale={[-1, 1, -1]} position={[0, 0, 0]} />
             </group>
           </>
         )}

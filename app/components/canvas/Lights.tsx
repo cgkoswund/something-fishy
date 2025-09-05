@@ -5,7 +5,7 @@ const Lights = () => {
   return (
     <>
       <directionalLight
-        color={'rgb(128, 200, 255)'}
+        color={'rgb(176, 217, 248)'}
         castShadow
         position={[0, 3, 0]}
         intensity={3}
@@ -27,7 +27,7 @@ const Lights = () => {
       <directionalLight position={[1, 0, 1]} intensity={1.5} />
       <directionalLight position={[-1, 1, -1]} intensity={0.3} />
       <directionalLight position={[1, 0.5, -1]} intensity={0.5} />
-      <ambientLight intensity={0.3} color={'rgb(255, 200, 0)'} />
+      <ambientLight intensity={0.3} color={'rgb(248, 229, 161)'} />
 
       {/**center tank light */}
       {/* <spotLight position={[0.4, 2.3, 0.4]} intensity={2} />

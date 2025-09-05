@@ -5,15 +5,44 @@ import * as THREE from 'three';
 
 const Materials = () => {
   // concrete
-  // const concreteDiffuse = useTexture(
-  //   '/tex/BareConcrete02/BareConcrete02_Albedo8_512.png'
-  // );
-  // const concreteNormal = useTexture(
-  //   '/tex/BareConcrete02/BareConcrete02_Normal8_512.png'
-  // );
-  // const concreteRoughness = useTexture(
-  //   '/tex/BareConcrete02/BareConcrete02_Rough8_512.png'
-  // );
+  const concreteDiffuse = useTexture(
+    '/tex/BareConcrete02/BareConcrete02_Albedo8_512.png'
+  );
+  const concreteNormal = useTexture(
+    '/tex/BareConcrete02/BareConcrete02_Normal8_512.png'
+  );
+  const concreteRoughness = useTexture(
+    '/tex/BareConcrete02/BareConcrete02_Rough8_512.png'
+  );
+
+  concreteDiffuse.colorSpace = THREE.SRGBColorSpace;
+  concreteNormal.colorSpace = THREE.LinearSRGBColorSpace;
+  concreteRoughness.colorSpace = THREE.LinearSRGBColorSpace;
+
+  concreteDiffuse.flipY = false;
+  concreteNormal.flipY = false;
+  concreteRoughness.flipY = false;
+
+  concreteDiffuse.wrapS = THREE.RepeatWrapping;
+  concreteDiffuse.wrapT = THREE.RepeatWrapping;
+  concreteNormal.wrapS = THREE.RepeatWrapping;
+  concreteNormal.wrapT = THREE.RepeatWrapping;
+  concreteRoughness.wrapS = THREE.RepeatWrapping;
+  concreteRoughness.wrapT = THREE.RepeatWrapping;
+
+  concreteDiffuse.repeat.set(8, 8);
+  concreteNormal.repeat.set(8, 8);
+  concreteRoughness.repeat.set(8, 8);
+
+  const concreteMaterial = new THREE.MeshStandardMaterial({
+    side: THREE.DoubleSide,
+    normalMap: concreteNormal,
+    normalScale: new THREE.Vector2(1.5, 1.5),
+    roughnessMap: concreteRoughness,
+    roughness: 0.9,
+    map: concreteDiffuse,
+    name: 'stone',
+  });
 
   //stone
   const stoneDiffuse = useTexture(
@@ -53,9 +82,9 @@ const Materials = () => {
     aoMap: stoneAO,
     aoMapIntensity: 1.5,
     normalMap: stoneNormal,
-    normalScale: new THREE.Vector2(2, 2),
+    normalScale: new THREE.Vector2(0.7, 0.7),
     roughnessMap: stoneRoughness,
-    roughness: 2,
+    roughness: 0.9,
     map: stoneDiffuse,
     name: 'stone',
   });
@@ -103,7 +132,7 @@ const Materials = () => {
     aoMap: sidewalkAO,
     aoMapIntensity: 1.5,
     normalMap: sidewalkNormal,
-    normalScale: new THREE.Vector2(2, 2),
+    normalScale: new THREE.Vector2(1, 1),
     roughnessMap: sidewalkRoughness,
     roughness: 0.35,
     map: sidewalkDiffuse,
@@ -125,9 +154,9 @@ const Materials = () => {
   const woodMaterial = new THREE.MeshStandardMaterial({
     side: THREE.DoubleSide,
     aoMap: woodAO,
-    aoMapIntensity: 4,
+    aoMapIntensity: 2,
     normalMap: woodNormal,
-    normalScale: new THREE.Vector2(3, 3),
+    normalScale: new THREE.Vector2(1.5, 1.5),
     roughnessMap: woodRoughness,
     roughness: 1,
     map: woodDiffuse,
@@ -161,6 +190,7 @@ const Materials = () => {
     // ceiling: <meshStandardMaterial color="rgb(60,75,100)" />,
     floor: woodMaterial,
     roof: sidewalkMaterial,
+    concrete: concreteMaterial,
   };
 
   return materialsMap;
