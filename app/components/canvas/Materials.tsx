@@ -35,7 +35,7 @@ const Materials = () => {
   concreteRoughness.repeat.set(8, 8);
 
   const concreteMaterial = new THREE.MeshStandardMaterial({
-    side: THREE.DoubleSide,
+    // side: THREE.DoubleSide,
     normalMap: concreteNormal,
     normalScale: new THREE.Vector2(1.5, 1.5),
     roughnessMap: concreteRoughness,

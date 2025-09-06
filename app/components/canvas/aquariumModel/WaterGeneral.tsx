@@ -104,7 +104,7 @@ const WaterGeneral = () => {
         </mesh>
       ))} */}
 
-      {crocTankMeshes.map((mesh, index) => (
+      {/* {crocTankMeshes.map((mesh, index) => (
         <mesh
           key={index}
           position={mesh.position.toArray()}
@@ -112,7 +112,7 @@ const WaterGeneral = () => {
         >
           {CrocWaterMaterial}
         </mesh>
-      ))}
+      ))} */}
 
       {outerTankMeshes.map((mesh, index) => (
         <mesh
